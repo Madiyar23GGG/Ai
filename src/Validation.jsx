@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './Validat.css'
 
 function Validation() {
     const[email, setemail]= useState('')
@@ -8,7 +9,7 @@ function Validation() {
     function handleSubm(e){
         e.preventDefault()
         if(!/^[A-Za-z]+$/.test(name) ){
-            setError('Текст әріп болуы тиіс')
+            setError( 'Name әріп болуы тиіс')
         } else if(!email.includes('@')){
             setError('Емайл дұрыс емес')
         } else if(password.length<6)
@@ -22,8 +23,9 @@ function Validation() {
 
     return(
         <form onSubmit={handleSubm}>
-            <label>Email</label>
+            <label>Name</label>
             <input type="name" onChange={(e)=> setName(e.target.value)} required/>
+            <label>Email</label>
             <input type="email" onChange={(e) => setemail(e.target.value)} required/>
             <label>password</label>
             <input type="password"  onChange={(e)=> setPasword(e.target.value)} required />
